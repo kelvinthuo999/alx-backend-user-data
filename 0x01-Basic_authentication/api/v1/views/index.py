@@ -9,7 +9,16 @@ def status():
     """Returns the status of the API"""
     return jsonify({"status": "OK"})
 
+
 @app_views.route('/api/v1/unauthorized', methods=['GET'])
 def unauthorized():
     """Raises a 401 Unauthorized error"""
     abort(401)
+
+
+@app_views.route('/forbidden')
+def trigger_forbidden_error():
+    """
+    Raise a 403 error
+    """
+    abort(403)
