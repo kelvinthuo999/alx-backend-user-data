@@ -14,7 +14,6 @@ class DB:
     """DB class
     """
 
-
     def __init__(self) -> None:
         """Initialize a new DB instance
         """
@@ -22,7 +21,6 @@ class DB:
         Base.metadata.drop_all(self._engine)
         Base.metadata.create_all(self._engine)
         self.__session = None
-
 
     @property
     def _session(self) -> Session:
@@ -33,11 +31,9 @@ class DB:
             self.__session = DBSession()
         return self.__session
 
-    
     def add_user(self, email: str, hashed_password: str) -> User:
         """
         Add a new user to the database.
-
         :param email: The email of the user.
         :param hashed_password: The hashed password of the user.
         :return: The newly created User object.
